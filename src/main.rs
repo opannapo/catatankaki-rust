@@ -37,6 +37,12 @@ fn parsing_args(args: Vec<String>) {
                     1 => {
                         module::perulangan::loop1(1, 5);
                     }
+                    2 => {
+                        module::perulangan::loop2();
+                    }
+                    3 => {
+                        module::perulangan::loop3();
+                    }
                     _ => {
                         eprintln!("Unknown Module Number");
                     }
