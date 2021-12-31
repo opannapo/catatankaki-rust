@@ -5,6 +5,7 @@ mod module;
 
 const ARG_HELP: &str = "help";
 const ARG_LOOP: &str = "loop";
+const ARG_TUPLES: &str = "tuples";
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -34,15 +35,22 @@ fn parsing_args(args: Vec<String>) {
             let (ok, number) = checking_module_number(args);
             if ok {
                 match number {
-                    1 => {
-                        module::perulangan::loop1(1, 5);
+                    1 => module::perulangan::loop1(1, 5),
+                    2 => module::perulangan::loop2(),
+                    3 => module::perulangan::loop3(),
+                    _ => {
+                        eprintln!("Unknown Module Number");
                     }
-                    2 => {
-                        module::perulangan::loop2();
-                    }
-                    3 => {
-                        module::perulangan::loop3();
-                    }
+                }
+            }
+            return;
+        }
+        ARG_TUPLES => {
+            let (ok, number) = checking_module_number(args);
+            if ok {
+                match number {
+                    1 => module::tuples::tuples1(),
+                    2 => module::tuples::tuples2(),
                     _ => {
                         eprintln!("Unknown Module Number");
                     }
