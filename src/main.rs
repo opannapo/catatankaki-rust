@@ -1,13 +1,15 @@
 use std::env;
 
+use entity::user::User as user_entity;
+
 mod module;
 mod entity;
-
 
 const ARG_HELP: &str = "help";
 const ARG_LOOP: &str = "loop";
 const ARG_TUPLES: &str = "tuples";
 const ARG_CLOSURES: &str = "closures";
+const ARG_STRUCT: &str = "struct";
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -34,6 +36,9 @@ fn parsing_args(args: Vec<String>) {
         }
         ARG_CLOSURES => {
             action_module_closures(args);
+        }
+        ARG_STRUCT => {
+            action_module_struct(args);
         }
         _ => {
             eprintln!("Unknown Arguments");
@@ -100,6 +105,21 @@ fn action_module_closures(args: Vec<String>) {
             1 => module::closures::closures1(),
             2 => module::closures::closures2(),
             3 => module::closures::closures3(),
+            _ => {
+                eprintln!("Unknown Module Number");
+            }
+        }
+    }
+}
+
+fn action_module_struct(args: Vec<String>) {
+    let (ok, number) = checking_module_number(args);
+    if ok {
+        match number {
+            1 => {
+                let data = user_entity { name: "OpannapO".to_string(), age: 33 };
+                module::structs::structs1(data);
+            }
             _ => {
                 eprintln!("Unknown Module Number");
             }
