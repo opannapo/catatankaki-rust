@@ -120,6 +120,10 @@ fn action_module_struct(args: Vec<String>) {
                 let data = user_entity { name: "OpannapO".to_string(), age: 33 };
                 module::structs::structs1(data);
             }
+            2 => {
+                let data = user_entity { name: "Taufan Alfazri Baru Belajar".to_string(), age: 33 };
+                module::structs::structs2(data);
+            }
             _ => {
                 eprintln!("Unknown Module Number");
             }
