@@ -10,6 +10,7 @@ const ARG_LOOP: &str = "loop";
 const ARG_TUPLES: &str = "tuples";
 const ARG_CLOSURES: &str = "closures";
 const ARG_STRUCT: &str = "struct";
+const ARG_GENERIC: &str = "generic";
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -39,6 +40,9 @@ fn parsing_args(args: Vec<String>) {
         }
         ARG_STRUCT => {
             action_module_struct(args);
+        }
+        ARG_GENERIC=>{
+            action_module_generic();
         }
         _ => {
             eprintln!("Unknown Arguments");
@@ -129,4 +133,8 @@ fn action_module_struct(args: Vec<String>) {
             }
         }
     }
+}
+
+fn action_module_generic() {
+    module::generic::generic1();
 }
