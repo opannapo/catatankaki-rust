@@ -42,7 +42,7 @@ fn parsing_args(args: Vec<String>) {
             action_module_struct(args);
         }
         ARG_GENERIC=>{
-            action_module_generic();
+            action_module_generic(args);
         }
         _ => {
             eprintln!("Unknown Arguments");
@@ -135,6 +135,17 @@ fn action_module_struct(args: Vec<String>) {
     }
 }
 
-fn action_module_generic() {
-    module::generic::generic1();
+fn action_module_generic(args: Vec<String>) {
+    let (ok, number) = checking_module_number(args);
+    if ok {
+        match number {
+            1 => {
+                module::generic::generic1();
+            }
+            _ => {
+                eprintln!("Unknown Module Number");
+            }
+        }
+    }
+
 }

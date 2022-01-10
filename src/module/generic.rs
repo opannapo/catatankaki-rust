@@ -1,6 +1,4 @@
-pub struct Person {
-    name: String,
-}
+use crate::entity::user::User;
 
 trait Repository<T> {
     fn get() -> Result<T, Box<dyn std::error::Error>>;
@@ -8,9 +6,9 @@ trait Repository<T> {
 
 struct FavoriteCategoryRepo {}
 
-impl Repository<Person> for FavoriteCategoryRepo {
-    fn get() -> Result<Person, Box<dyn std::error::Error>> {
-        let p = Person { name: String::from("Budi") };
+impl Repository<User> for FavoriteCategoryRepo {
+    fn get() -> Result<User, Box<dyn std::error::Error>> {
+        let p = User { name: String::from("Opannapo"), age: 33 };
         Ok(p)
     }
 }
