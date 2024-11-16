@@ -50,6 +50,7 @@ fn parsing_args(args: Vec<String>) {
     }
 }
 
+
 fn checking_module_number(args: Vec<String>) -> (bool, i32) {
     if args.len() < 3 {
         eprintln!("Unknown Module Number");
@@ -68,10 +69,14 @@ fn checking_module_number(args: Vec<String>) -> (bool, i32) {
 fn action_module_help() {
     println!("----------- Service Modules Name ----------");
     println!("help");
-    println!("loop , available number [1]");
+    println!("loop , available number -> [1,2,3]");
+    println!("tuples , available number -> [1,2]");
+    println!("closures , available number -> [1,2,3]");
+    println!("struct , available number -> [1,2]");
+    println!("generic , available number -> [1]");
     println!("----------- --------- ----------");
     println!("Example :  cargo run loop 1");
-    println!("Example :  cargo run param 2");
+    println!("Example :  cargo run closures 3");
     println!("----------- --------- ----------");
 }
 
